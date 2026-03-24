@@ -1,0 +1,62 @@
+yuliaa@yuliaa-Latitude-5430:~$ aws iam create-user --user-name cli-test-user
+{
+    "User": {
+        "Path": "/",
+        "UserName": "cli-test-user",
+        "UserId": "AIDAZD343CWRAYCJX6YK2",
+        "Arn": "arn:aws:iam::626790176162:user/cli-test-user",
+        "CreateDate": "2026-03-22T08:47:15Z"
+    }
+}
+yuliaa@yuliaa-Latitude-5430:~$ aws iam attach-user-policy \
+  --user-name cli-test-user \
+  --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+yuliaa@yuliaa-Latitude-5430:~$ aws iam list-users
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "cli-test-user",
+            "UserId": "AIDAZD343CWRAYCJX6YK2",
+            "Arn": "arn:aws:iam::626790176162:user/cli-test-user",
+            "CreateDate": "2026-03-22T08:47:15Z"
+        },
+        {
+            "Path": "/",
+            "UserName": "student-user",
+            "UserId": "AIDAZD343CWRHGDS6ZFSK",
+            "Arn": "arn:aws:iam::626790176162:user/student-user",
+            "CreateDate": "2026-03-22T08:33:08Z"
+        }
+    ]
+}
+yuliaa@yuliaa-Latitude-5430:~$ aws iam detach-user-policy \
+  --user-name cli-test-user \
+  --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+yuliaa@yuliaa-Latitude-5430:~$ aws iam delete-user --user-name cli-test-user
+yuliaa@yuliaa-Latitude-5430:~$ aws iam list-users
+{
+    "Users": [
+        {
+            "Path": "/",
+            "UserName": "student-user",
+            "UserId": "AIDAZD343CWRHGDS6ZFSK",
+            "Arn": "arn:aws:iam::626790176162:user/student-user",
+            "CreateDate": "2026-03-22T08:33:08Z"
+        }
+    ]
+}
+
+
+
+
+yuliaa@yuliaa-Latitude-5430:~$ echo "Hello from AWS" > hello.txt
+yuliaa@yuliaa-Latitude-5430:~$ cat hello.txt
+Hello from AWS
+yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls s3://aws-cli-lab-yuliaa/
+
+An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The specified bucket does not exist
+yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls
+2026-03-22 10:55:49 aws-cli-lab-yuliaa-626790176162-us-east-1-an
+yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls s3://aws-cli-lab-yuliaa-626790176162-us-east-1-an/
+2026-03-22 10:57:35         15 hello.txt
