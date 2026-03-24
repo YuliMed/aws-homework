@@ -53,9 +53,6 @@ yuliaa@yuliaa-Latitude-5430:~$ aws iam list-users
 yuliaa@yuliaa-Latitude-5430:~$ echo "Hello from AWS" > hello.txt
 yuliaa@yuliaa-Latitude-5430:~$ cat hello.txt
 Hello from AWS
-yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls s3://aws-cli-lab-yuliaa/
-
-An error occurred (NoSuchBucket) when calling the ListObjectsV2 operation: The specified bucket does not exist
 yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls
 2026-03-22 10:55:49 aws-cli-lab-yuliaa-626790176162-us-east-1-an
 yuliaa@yuliaa-Latitude-5430:~$ aws s3 ls s3://aws-cli-lab-yuliaa-626790176162-us-east-1-an/
